@@ -1,7 +1,7 @@
-Pseudocódigo - Francisco Blasco
+/// Pseudocódigo - Francisco Blasco
 
 class PrendaNueva {
-  Float calcularDesc () {
+  int calcularDesc () {
       return 0;
   }
 }
@@ -16,7 +16,7 @@ class PrendaPromo {
 
 class PrendaLiquidacion extends Prenda {
   Float calcularDesc () {
-      return this.precioBase * 0.5;
+      return (float) (this.precioBase * 0.5);
   }
 }
 
@@ -39,7 +39,7 @@ class Venta {
  
   Float calcularImporte () {
     return this.prendas.Stream()
-        .reduce(0, (a,b) -> a.calcularPrecio() + b.calcularPrecio()) + this.formaPago.calcularRecargo(this.prendas)
+        .reduce(0, (a,b) -> a.calcularPrecio() + b.calcularPrecio()) + this.formaPago.calcularRecargo(this.prendas);
   }
  
 }
@@ -48,23 +48,23 @@ class VentaTarjeta {
     Integer cantCuotas;
     Float coefFijo;
  
-    Float calcularRecargo (List<Prenda> prendas) {
+    Float calcularRecargo (List <Prenda> prendas) {
         return this.cantCuotas * this.coefFijo + this.prendas.Stream().reduce(0, (a,b) -> a.calcularPrecio() + b.calcularPrecio()) * 0.01
     }
  }
  
  class VentaEfectivo {
-    calcularRecargo () {
+    int calcularRecargo () {
         return 0;
     }
  }
 
 class MacOwins {
-  List<Venta> ventas = new ArrayList();   
+  List <Venta> ventas = new ArrayList();   
 
-  calcularGanancias (fecha) {
+  Float calcularGanancias (Date fecha) {
         return this.ventas.Stream()
             .filter(v -> v.fechaVenta.equals(fecha))
-            .reduce(0, (a,b) -> a.calcularImporte() + b.calcularImporte())
+            .reduce(0, (a,b) -> a.calcularImporte() + b.calcularImporte());
   }
 }
