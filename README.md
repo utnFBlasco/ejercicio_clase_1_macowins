@@ -1,6 +1,8 @@
 # ejercicio_clase_1_macowins
 
-Requerimientos:
+Alumno Francisco Blasco
+
+1. Requerimientos:
 
 * Conocer el precio de venta de la prenda y que tipo de prenda es. Para lo primero tenemos que tener en cuenta el estado de la prenda y su precio base.
 
