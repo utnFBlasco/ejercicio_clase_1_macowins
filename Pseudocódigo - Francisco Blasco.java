@@ -1,22 +1,22 @@
 /// Pseudocódigo - Francisco Blasco
 
 class PrendaNueva {
-  int calcularDesc () {
-      return 0;
+  int precioFinal (precio) {
+      return precio;
   }
 }
 
 class PrendaPromo {
   Float valorFijo;
 
-  Float calcularDesc () {
-      return this.valorFijo;
+  Float precioFinal (precio) {
+      return precio - this.valorFijo;
   }
 }
 
-class PrendaLiquidacion extends Prenda {
-  Float calcularDesc () {
-      return (float) (this.precioBase * 0.5);
+class PrendaLiquidacion {
+  Float precioFinal (precio) {
+      return (float) precio - precio * 0.5;
   }
 }
 
@@ -27,7 +27,7 @@ class Prenda {
     var estado;
   
     Float calcularPrecio () {
-        return (this.precioBase * this.cantidad) - this.estado.calcularDesc();
+        return estado.precioFinal(this.precioBase * this.cantidad);
     }
   }
 
